@@ -1,11 +1,6 @@
 # Lyra: System Architecture Documentation
 ## Autonomous Technical Writing Agent
 
-**Version**: 1.0  
-**Date**: 2025  
-**Author**: System Architecture Team  
-**Status**: Phase 1 Design
-
 ---
 
 ## Table of Contents
