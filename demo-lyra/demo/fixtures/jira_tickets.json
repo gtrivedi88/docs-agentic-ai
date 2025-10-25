@@ -1,0 +1,148 @@
+{
+  "release": "v2.1",
+  "project": "OpenShift",
+  "project_key": "OPSHIFT",
+  "tickets": [
+    {
+      "key": "OPSHIFT-123",
+      "summary": "Add OAuth 2.1 support for SSO authentication",
+      "description": "Implement OAuth 2.1 authentication to replace legacy OAuth 2.0. This will improve security and align with industry standards. Users will be able to authenticate using modern SSO providers like Okta, Auth0, and Azure AD.",
+      "status": "Done",
+      "priority": "High",
+      "issue_type": "Feature",
+      "assignee": "Sarah Chen",
+      "fix_version": "v2.1",
+      "components": ["authentication", "security"],
+      "labels": ["security", "customer-facing", "breaking-change"],
+      "comments": [
+        {
+          "author": "Tech Lead (Mike Johnson)",
+          "timestamp": "2025-09-15 10:23:00",
+          "body": "After reviewing the OAuth 2.1 spec, I recommend we use the Auth0 library. It's well-maintained and supports all our requirements including PKCE."
+        },
+        {
+          "author": "Security Team (Lisa Park)",
+          "timestamp": "2025-09-16 14:30:00",
+          "body": "Approved from security perspective. OAuth 2.1 addresses several vulnerabilities in 2.0. Make sure to implement PKCE and rotate refresh tokens."
+        },
+        {
+          "author": "Developer (Sarah Chen)",
+          "timestamp": "2025-09-20 09:15:00",
+          "body": "Implementation complete. All tests passing. Migration guide updated for customers upgrading from OAuth 2.0."
+        },
+        {
+          "author": "Product Manager (James Wilson)",
+          "timestamp": "2025-09-21 11:00:00",
+          "body": "This is a breaking change. Customers will need to reconfigure their SSO settings. Let's make sure release notes are very clear about migration steps."
+        }
+      ],
+      "linked_issues": ["OPSHIFT-124"],
+      "linked_prs": [456, 457]
+    },
+    {
+      "key": "OPSHIFT-124",
+      "summary": "Update documentation for OAuth 2.1 migration",
+      "description": "Create comprehensive migration guide for customers moving from OAuth 2.0 to OAuth 2.1",
+      "status": "Done",
+      "priority": "High",
+      "issue_type": "Documentation",
+      "assignee": "Tom Martinez",
+      "fix_version": "v2.1",
+      "components": ["documentation"],
+      "labels": ["documentation", "customer-facing"],
+      "comments": [
+        {
+          "author": "Tech Writer (Tom Martinez)",
+          "timestamp": "2025-09-22 10:00:00",
+          "body": "Migration guide complete. Includes step-by-step instructions, troubleshooting section, and code examples."
+        }
+      ],
+      "linked_issues": ["OPSHIFT-123"],
+      "linked_prs": [458]
+    },
+    {
+      "key": "OPSHIFT-125",
+      "summary": "Fix API timeout issue in pod listing endpoint",
+      "description": "API endpoint /api/v1/pods times out when cluster has >1000 pods. This is causing customer issues in large production environments.",
+      "status": "Done",
+      "priority": "Critical",
+      "issue_type": "Bug",
+      "assignee": "David Kim",
+      "fix_version": "v2.1",
+      "components": ["api", "performance"],
+      "labels": ["bugfix", "performance", "customer-reported"],
+      "comments": [
+        {
+          "author": "Customer Support (Emma Davis)",
+          "timestamp": "2025-09-10 08:30:00",
+          "body": "Customer reported this in production. Cluster with 1500 pods fails to list. Urgent."
+        },
+        {
+          "author": "Developer (David Kim)",
+          "timestamp": "2025-09-12 15:45:00",
+          "body": "Root cause found: inefficient query loading all pod data at once. Implementing pagination and lazy loading."
+        },
+        {
+          "author": "QA (Rachel Green)",
+          "timestamp": "2025-09-18 11:20:00",
+          "body": "Tested with 5000 pods. Response time reduced from timeout to 2.3 seconds. Excellent improvement."
+        }
+      ],
+      "linked_issues": [],
+      "linked_prs": [459]
+    },
+    {
+      "key": "OPSHIFT-126",
+      "summary": "Improve container startup time by 40%",
+      "description": "Optimize container initialization process to reduce startup time in large deployments.",
+      "status": "Done",
+      "priority": "Medium",
+      "issue_type": "Improvement",
+      "assignee": "Alex Kumar",
+      "fix_version": "v2.1",
+      "components": ["containers", "performance"],
+      "labels": ["performance", "optimization"],
+      "comments": [
+        {
+          "author": "Performance Team (Alex Kumar)",
+          "timestamp": "2025-09-05 09:00:00",
+          "body": "Profiling shows container startup spends 40% of time on unnecessary filesystem scans. Implementing caching layer."
+        },
+        {
+          "author": "Architect (Nina Patel)",
+          "timestamp": "2025-09-07 14:00:00",
+          "body": "Approved. This will significantly improve user experience in auto-scaling scenarios."
+        },
+        {
+          "author": "QA (Rachel Green)",
+          "timestamp": "2025-09-19 10:30:00",
+          "body": "Performance improvement confirmed: Average startup time reduced from 5.2s to 3.1s (40% improvement)."
+        }
+      ],
+      "linked_issues": [],
+      "linked_prs": [460, 461]
+    },
+    {
+      "key": "OPSHIFT-127",
+      "summary": "Internal refactor: Migrate logger to structured logging",
+      "description": "Internal code quality improvement. Migrate old logging to structured logging format. No customer impact.",
+      "status": "Done",
+      "priority": "Low",
+      "issue_type": "Technical Debt",
+      "assignee": "Chris Anderson",
+      "fix_version": "v2.1",
+      "components": ["internal"],
+      "labels": ["internal", "code-quality"],
+      "comments": [
+        {
+          "author": "Developer (Chris Anderson)",
+          "timestamp": "2025-09-25 16:00:00",
+          "body": "Refactoring complete. All logging now uses structured format. This is purely internal, no customer impact."
+        }
+      ],
+      "linked_issues": [],
+      "linked_prs": [462]
+    }
+  ]
+}
+

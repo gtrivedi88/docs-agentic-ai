@@ -1,0 +1,130 @@
+{
+  "repository": "openshift/origin",
+  "pull_requests": [
+    {
+      "number": 456,
+      "title": "feat: Implement OAuth 2.1 authentication (OPSHIFT-123)",
+      "state": "merged",
+      "author": "sarah-chen",
+      "body": "This PR implements OAuth 2.1 authentication as specified in OPSHIFT-123.\n\nKey changes:\n- Add Auth0 integration\n- Implement PKCE flow\n- Add refresh token rotation\n- Update authentication middleware\n\nBreaking change: OAuth 2.0 endpoints are deprecated. Migration guide in docs.\n\nTested with: Okta, Auth0, Azure AD",
+      "files_changed": 23,
+      "additions": 1847,
+      "deletions": 456,
+      "merged_at": "2025-09-21 15:30:00",
+      "labels": ["feature", "security", "breaking-change"],
+      "linked_issues": ["OPSHIFT-123"],
+      "changed_files": [
+        "pkg/auth/oauth21.go",
+        "pkg/auth/middleware.go",
+        "pkg/auth/pkce.go",
+        "api/v1/auth_handlers.go",
+        "docs/authentication.md"
+      ]
+    },
+    {
+      "number": 457,
+      "title": "test: Add OAuth 2.1 integration tests (OPSHIFT-123)",
+      "state": "merged",
+      "author": "sarah-chen",
+      "body": "Comprehensive test suite for OAuth 2.1 implementation.\n\nCovers:\n- PKCE flow\n- Token rotation\n- Error handling\n- Multi-provider support",
+      "files_changed": 8,
+      "additions": 654,
+      "deletions": 23,
+      "merged_at": "2025-09-21 16:00:00",
+      "labels": ["tests"],
+      "linked_issues": ["OPSHIFT-123"],
+      "changed_files": [
+        "test/integration/oauth_test.go",
+        "test/unit/pkce_test.go"
+      ]
+    },
+    {
+      "number": 458,
+      "title": "docs: OAuth 2.1 migration guide (OPSHIFT-124)",
+      "state": "merged",
+      "author": "tom-martinez",
+      "body": "Migration guide for customers upgrading from OAuth 2.0 to 2.1.\n\nIncludes:\n- Step-by-step upgrade process\n- Configuration examples\n- Troubleshooting common issues\n- Provider-specific guides (Okta, Auth0, Azure AD)",
+      "files_changed": 3,
+      "additions": 487,
+      "deletions": 12,
+      "merged_at": "2025-09-23 10:15:00",
+      "labels": ["documentation"],
+      "linked_issues": ["OPSHIFT-124"],
+      "changed_files": [
+        "docs/oauth-migration.md",
+        "docs/authentication.md"
+      ]
+    },
+    {
+      "number": 459,
+      "title": "fix: Implement pagination for pod listing API (OPSHIFT-125)",
+      "state": "merged",
+      "author": "david-kim",
+      "body": "Fixes critical timeout issue in /api/v1/pods endpoint.\n\nChanges:\n- Add pagination support (limit, offset parameters)\n- Implement lazy loading for pod metadata\n- Add response streaming for large result sets\n- Optimize database queries\n\nPerformance:\n- Before: Timeout on >1000 pods\n- After: 2.3s response time for 5000 pods\n\nBackward compatible: Old clients still work, new clients can use pagination.",
+      "files_changed": 12,
+      "additions": 543,
+      "deletions": 187,
+      "merged_at": "2025-09-19 14:20:00",
+      "labels": ["bugfix", "performance", "api"],
+      "linked_issues": ["OPSHIFT-125"],
+      "changed_files": [
+        "pkg/api/pods.go",
+        "pkg/api/pagination.go",
+        "pkg/db/queries.go",
+        "api/v1/handlers.go"
+      ]
+    },
+    {
+      "number": 460,
+      "title": "perf: Cache container image metadata (OPSHIFT-126)",
+      "state": "merged",
+      "author": "alex-kumar",
+      "body": "Implement caching layer for container image metadata to improve startup time.\n\nKey optimizations:\n- Cache image manifests locally\n- Reduce filesystem scans\n- Parallel image pulls\n\nResults: 40% reduction in container startup time (5.2s → 3.1s)",
+      "files_changed": 15,
+      "additions": 687,
+      "deletions": 234,
+      "merged_at": "2025-09-20 11:45:00",
+      "labels": ["performance", "containers"],
+      "linked_issues": ["OPSHIFT-126"],
+      "changed_files": [
+        "pkg/container/image_cache.go",
+        "pkg/container/startup.go",
+        "pkg/container/metadata.go"
+      ]
+    },
+    {
+      "number": 461,
+      "title": "test: Container startup performance tests (OPSHIFT-126)",
+      "state": "merged",
+      "author": "alex-kumar",
+      "body": "Performance test suite validating startup time improvements.",
+      "files_changed": 4,
+      "additions": 234,
+      "deletions": 12,
+      "merged_at": "2025-09-20 12:00:00",
+      "labels": ["tests", "performance"],
+      "linked_issues": ["OPSHIFT-126"],
+      "changed_files": [
+        "test/performance/container_startup_test.go"
+      ]
+    },
+    {
+      "number": 462,
+      "title": "refactor: Migrate to structured logging (OPSHIFT-127)",
+      "state": "merged",
+      "author": "chris-anderson",
+      "body": "Internal refactoring to structured logging. No customer-facing changes.",
+      "files_changed": 45,
+      "additions": 892,
+      "deletions": 1023,
+      "merged_at": "2025-09-26 13:00:00",
+      "labels": ["internal", "refactoring"],
+      "linked_issues": ["OPSHIFT-127"],
+      "changed_files": [
+        "pkg/log/structured.go",
+        "... (45 files total)"
+      ]
+    }
+  ]
+}
+

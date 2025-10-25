@@ -1,0 +1,6 @@
+# Lyra Demo Version - Minimal Dependencies
+# Only 2 dependencies needed for demo!
+
+rich>=13.7.0       # Beautiful terminal output
+typer[all]>=0.9.0  # CLI framework
+
