@@ -4,7 +4,7 @@
 
 ---
 
-## 🎯 Quick Start (3 Steps)
+## Quick Start (3 Steps)
 
 ```bash
 # 1. Setup (30 seconds)
@@ -21,7 +21,7 @@ cat demo/outputs/openshift_v2.1_release_notes.md
 
 ---
 
-## 🎬 What is This?
+## What is This?
 
 This is a **demonstration version** of Lyra - an autonomous documentation agent that:
 - Searches multiple sources (Jira, GitHub, Confluence, Slack, etc.)
@@ -33,7 +33,7 @@ This is a **demonstration version** of Lyra - an autonomous documentation agent 
 
 ---
 
-## ⚡ Demo Commands
+## Demo Commands
 
 ### Basic Demo
 ```bash
@@ -52,7 +52,7 @@ python src/main.py info
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 - **`README_DEMO.md`** - Complete demo guide, FAQ, customization
 - **`demo/PRESENTATION_SCRIPT.md`** - How to present to your team (10 min script)
@@ -65,7 +65,7 @@ python src/main.py info
 
 ---
 
-## 🎯 Demo vs Full Version
+## Demo vs Full Version
 
 | Feature | Demo | Full Version |
 |---------|------|--------------|
@@ -78,7 +78,7 @@ python src/main.py info
 
 ---
 
-## 🚀 Next Steps
+## Next Steps
 
 ### After Demoing to Team:
 
@@ -92,7 +92,7 @@ python src/main.py info
 
 ---
 
-## 📁 Demo Structure
+## Demo Structure
 
 ```
 demo-lyra/
@@ -116,7 +116,7 @@ demo-lyra/
 
 ---
 
-## 💡 Key Points for Your Team
+## Key Points for Your Team
 
 1. **This solves a real problem**: Hours of manual work automated
 2. **It's feasible**: Complete architecture designed
@@ -127,7 +127,7 @@ demo-lyra/
 
 ---
 
-## 🎤 Presenting to Your Team?
+## Presenting to Your Team?
 
 1. Read: `demo/PRESENTATION_SCRIPT.md` (10-minute script)
 2. Check: `DEMO_CHECKLIST.md` (preparation checklist)
@@ -137,7 +137,7 @@ demo-lyra/
 
 ---
 
-## 🔧 Customizing the Demo
+## Customizing the Demo
 
 Want to customize for your project?
 
@@ -148,7 +148,7 @@ Want to customize for your project?
 
 ---
 
-## ❓ Questions?
+## Questions?
 
 **About the demo**: See `README_DEMO.md`  
 **About presenting**: See `demo/PRESENTATION_SCRIPT.md`  
@@ -156,5 +156,5 @@ Want to customize for your project?
 
 ---
 
-**Ready to demo? Run**: `python src/main.py create-release-notes v2.1` 🚀
+**Ready to demo? Run**: `python src/main.py create-release-notes v2.1`
 
