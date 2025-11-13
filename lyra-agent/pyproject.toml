@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lyra-agent"
+version = "0.1.0"
+description = "Autonomous documentation agent for technical writing"
+requires-python = ">=3.10"
+dependencies = [
+    # Core Framework
+    "langchain>=0.1.0",
+    "langchain-community>=0.0.20",
+    "langgraph>=0.0.40",
+    "langchain-mistralai>=0.0.5",
+    
+    # Data Sources
+    "jira>=3.5.0",
+    "PyGithub>=2.1.1",
+    "python-gitlab>=4.0.0",
+    "atlassian-python-api>=3.41.0",  # Confluence
+    "slack-sdk>=3.26.0",
+    "google-api-python-client>=2.100.0",
+    "google-auth>=2.23.0",
+    
+    # Vector Store & Embeddings
+    "chromadb>=0.4.22",
+    "sentence-transformers>=2.2.2",
+    
+    # Utilities
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.1.0",
+    "typer[all]>=0.9.0",
+    "rich>=13.7.0",  # Beautiful CLI output
+    "pyyaml>=6.0.1",
+    "python-dotenv>=1.0.0",
+    
+    # Testing & Quality
+    "pytest>=7.4.3",
+    "pytest-asyncio>=0.21.1",
+    "pytest-cov>=4.1.0",
+    "black>=23.12.1",
+    "ruff>=0.1.9",
+]
+
+[project.optional-dependencies]
+dev = [
+    "jupyter>=1.0.0",
+    "ipykernel>=6.27.1",
+    "ipywidgets>=8.1.1",
+]
+
+[project.scripts]
+lyra = "src.main:app"
+
+[tool.black]
+line-length = 100
+target-version = ['py310']
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"
+
